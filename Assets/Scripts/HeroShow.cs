@@ -9,7 +9,7 @@ namespace Private
     [System.Serializable]
     public class HeroBought
     {
-        public List<int> Indexs = new() { 0 };
+        public List<int> Indexs = new() { 0 }; 
     }
     public class HeroShow : MonoBehaviour
     {
