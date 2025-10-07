@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: PU Extra Slot Settings
   m_EditorClassIdentifier: 
   type: 3
-  icon: {fileID: 21300000, guid: 68b8001f1e3acf546bc35c8485bc0a1b, type: 3}
-  behaviorPrefab: {fileID: 8639613220819503385, guid: ac6bdd9c961d6024382f4bf5d62139b1,
-    type: 3}
+  icon: {fileID: -357595505551352315, guid: ebb1f18a24decc84a9f3bc90951c4d05, type: 3}
+  behaviorPrefab: {fileID: 8639613220819503385, guid: ac6bdd9c961d6024382f4bf5d62139b1, type: 3}
   defaultAmount: 3
   description: Unlock an extra slot for one round
   requiredLevel: 0
