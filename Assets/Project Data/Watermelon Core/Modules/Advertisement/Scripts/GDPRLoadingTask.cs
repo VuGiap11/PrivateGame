@@ -1,0 +1,20 @@
+﻿using UnityEngine;
+
+namespace TitleGame
+{
+    public sealed class GDPRLoadingTask : LoadingTask
+    {
+        private GDPRPanel gdprPanel;
+
+        //public override void Activate()
+        //{
+        //    isActive = true;
+
+        //    GameObject gdprPanelObject = GameObject.Instantiate(AdsManager.InitModule.GDPRPrefab);
+        //    gdprPanelObject.transform.ResetGlobal();
+
+        //    gdprPanel = gdprPanelObject.GetComponent<GDPRPanel>();
+        //    gdprPanel.Initialise(this);
+        //}
+    }
+}
