@@ -30,6 +30,11 @@ namespace Private
         public int Index;
         public int Price;
     }
+    [System.Serializable]
+    public class HeroBought
+    {
+        public List<int> Indexs = new() { 0 };
+    }
 
     public class DataController : MonoBehaviour
     {
@@ -46,8 +51,10 @@ namespace Private
             {
                 instance = this;
             }
-            LoadData();
+           // LoadData();
         }
+
+       
         public void LoadData()
         {
             this.HeroDataCfs = JsonUtility.FromJson<HeroDataCfs>(this.HeroDatatext.text);

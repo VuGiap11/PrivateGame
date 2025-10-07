@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using NTPackage.UI;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -62,7 +63,7 @@ namespace Private
                 isDead = true;
                 SoundManager.instance.PlaySingle(SoundManager.instance.audioDie);
                 rb.bodyType = RigidbodyType2D.Dynamic;
-                UIManager.Instance.Lose();
+                PopupManager.Instance.OnUI(PopupCode.ResultPanel);
                 //Time.timeScale = 0;
             }
             if (collision.tag == "Coin")
@@ -76,10 +77,10 @@ namespace Private
             if (collision.tag == "Point" && !isDead)
             {
                 DataController.instance.Point += 1;
-                if (DataController.instance.Point >= 50)
-                {
-                    GameManager.instance.ChangeBg();
-                }
+                //if (DataController.instance.Point >= 50)
+                //{
+                //    GameManager.instance.ChangeBg();
+                //}
                 if (DataController.instance.Point >= DataController.instance.DataPlayerController.HightPoint)
                 {
                     DataController.instance.DataPlayerController.HightPoint = DataController.instance.Point;

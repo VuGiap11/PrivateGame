@@ -1,4 +1,4 @@
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -6,6 +6,7 @@ namespace Private
 {
     public class GameManager : MonoBehaviour
     {
+
         public static GameManager instance;
         public bool IsStart;
         public float minSpeed = 2f;
@@ -16,7 +17,9 @@ namespace Private
         public GameObject SceneStart;
         public BackGroundScaler backGroundScaler;
         public PlayerMoveMent PlayerMoveMent;
-
+        float referenceWidth = 1080f;  // Chiều rộng tham chiếu
+        float referenceHeight = 1920f; // Chiều cao tham chiếu
+        public GameObject clawMachineObj;
         private void Awake()
         {
             if (instance == null) 
@@ -26,6 +29,8 @@ namespace Private
         }
         private void Start()
         {
+            ScaleClawMachine();
+
             UIManager.Instance.TextGOLD();
         }
         public void StartGame()
@@ -70,6 +75,42 @@ namespace Private
         public void PlayGame()
         {
             PlayerMoveMent.PlayerMove();
+        }
+        void ScaleClawMachine()
+        {
+            float referenceAspect = referenceWidth / referenceHeight;
+            float scaleFactor = (float)Screen.width / referenceWidth;
+            float aspectRatio = (float)Screen.width / Screen.height;
+            //float aspectRatio = (float)Screen.height / Screen.width;
+            Debug.Log("aspectRatio" + aspectRatio);
+            Debug.Log("width" + Screen.width);
+            Debug.Log("height" + Screen.height);
+            if (aspectRatio >= 2.1f) // Điện thoại siêu dài (21:9)
+            {
+                clawMachineObj.transform.localScale = new Vector3(0.82f, 0.82f, 1);
+            }
+            else if (aspectRatio >= 1.8f) // Điện thoại phổ thông (19.5:9, 18:9)
+            {
+                clawMachineObj.transform.localScale = new Vector3(1.0f, 1.0f, 1);
+            }
+            else if (aspectRatio >= 1.5f) // Tablet hoặc điện thoại cũ (16:10, 4:3)
+            {
+                //1.5
+                clawMachineObj.transform.localScale = new Vector3(0.9f, 0.9f, 1);
+            }
+            else // Màn hình vuông hoặc nhỏ
+            {
+                float scaleFactorWidth = (float)Screen.width / referenceWidth;  // Hệ số theo chiều rộng
+                if (scaleFactorWidth >= 1f)
+                {
+                    clawMachineObj.transform.localScale = new Vector3(1f, 1f, 1f);
+                }
+                else
+                {
+                    clawMachineObj.transform.localScale = new Vector3(0.8f, 0.8f, 1);
+                }
+            }
+
         }
     }
 

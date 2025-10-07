@@ -1,19 +1,21 @@
-﻿using System;
+﻿using NTPackage.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Private
 {
-    public class HeroShopManager : MonoBehaviour
+    public class HeroShopManager : PopupUI
     {
         public HeroShow heroShowPreb;
         public Transform Holder;
         public List<HeroShow> heroShows;
 
 
-        private void OnEnable()
+        public override void OnUI(object data = null)
         {
+            base.OnUI(data);
             OnUI();
         }
         public void OnUI()

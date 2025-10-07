@@ -1,3 +1,4 @@
+using NTPackage.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,11 +7,7 @@ using UnityEngine;
 
 namespace Private
 {
-    [System.Serializable]
-    public class HeroBought
-    {
-        public List<int> Indexs = new() { 0 }; 
-    }
+
     public class HeroShow : MonoBehaviour
     {
         public int IndexHeroBought;
@@ -57,8 +54,9 @@ namespace Private
         {
             GameManager.instance.IndexPlayer = HeroDataCf.Index;
             Debug.Log(GameManager.instance.IndexPlayer);
-            UIManager.Instance.CLoseShop();
             GameManager.instance.SpawnPlayer(GameManager.instance.IndexPlayer);
+            PopupManager.Instance.OnUI(PopupCode.LoadingUI);
+            PopupManager.Instance.OffUI(PopupCode.ShopPanel);
         }
         public void CheckBuyHero()
         {

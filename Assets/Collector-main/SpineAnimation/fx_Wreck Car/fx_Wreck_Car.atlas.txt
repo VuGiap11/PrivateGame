@@ -1,0 +1,34 @@
+
+fx_Wreck_Car.png
+size: 132,284
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1
+  rotate: false
+  xy: 2, 5
+  size: 77, 32
+  orig: 77, 32
+  offset: 0, 0
+  index: -1
+glow
+  rotate: false
+  xy: 2, 151
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+ring
+  rotate: false
+  xy: 2, 39
+  size: 110, 110
+  orig: 110, 110
+  offset: 0, 0
+  index: -1
+smoke
+  rotate: false
+  xy: 81, 2
+  size: 36, 35
+  orig: 36, 35
+  offset: 0, 0
+  index: -1
