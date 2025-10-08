@@ -25,7 +25,8 @@ namespace TitleGame
         }
         public void OneClick()
         {
-           // SoundController.instance.AudioButton();
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
+            // SoundController.instance.AudioButton();
             DataController.instance.dataPlayerController.idAvar = this.id;
             //HomeController.instance.SetAvar();
             AvarPanel avarPanel = PopupManager.Instance.GetPopupUIByCode(PopupCode.AvatarChangeUI) as AvarPanel;

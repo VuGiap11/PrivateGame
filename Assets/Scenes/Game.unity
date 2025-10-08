@@ -669,7 +669,6 @@ GameObject:
   - component: {fileID: 1060784203}
   - component: {fileID: 1060784205}
   - component: {fileID: 1060784207}
-  - component: {fileID: 1060784210}
   - component: {fileID: 1060784209}
   m_Layer: 0
   m_Name: ScriptHolder
@@ -988,19 +987,6 @@ MonoBehaviour:
   ninthStepTitle: Great!
   ninthStepMessage: Complete the level to continue
   finishTitle: Good job!
---- !u!114 &1060784210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060784196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1442cef9c6030b94bb5d173d1c533f9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tutorialCanvasController: {fileID: 0}
 --- !u!1 &1389158718
 GameObject:
   m_ObjectHideFlags: 0
@@ -2930,10 +2916,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7921812722436507111, guid: f498ec5c4d8606d44b8576c76181fe5a, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7921812722436507131, guid: f498ec5c4d8606d44b8576c76181fe5a, type: 3}
       propertyPath: m_Name
       value: UI Game
@@ -4393,7 +4375,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 66be956892120a84bbda15b783d05267, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a8766bc47c06ae947b2b3476837f5cdb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

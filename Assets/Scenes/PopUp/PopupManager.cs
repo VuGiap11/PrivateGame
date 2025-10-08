@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using TitleGame;
 
 namespace NTPackage.UI
 {
@@ -44,6 +45,7 @@ namespace NTPackage.UI
 
         public void OnUI(PopupCode popupCode, object data = null, Action<PopupUI> action = null)
         {
+
             try
             {
                 //NTPackage.Functions.NTLog.LogMessage("OnUI:" + popupCode.ToString(), gameObject);
@@ -60,6 +62,7 @@ namespace NTPackage.UI
         }
         public void OffUI(PopupCode popupCode)
         {
+ 
             try
             {
                 //NTPackage.Functions.NTLog.LogMessage("OffUI:" + popupCode.ToString(), gameObject);

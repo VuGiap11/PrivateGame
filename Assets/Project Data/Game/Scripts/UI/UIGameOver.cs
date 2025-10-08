@@ -103,17 +103,20 @@ namespace TitleGame
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
 
 
-            if (LivesManager.Lives > 0)
+            if (LivesManager.Lives <= 0)
+            {
+                Debug.Log("sao2");
+                PopupManager.Instance.OnUI(PopupCode.AddLivesPanel);
+                return;
+            }
+            else
             {
                 LivesManager.RemoveLife();
 
                 UIController.HidePage<UIGameOver>();
                 GameController.ReplayLevel();
-            }
-            else
-            {
                 // addLivesPanel.Show();
-                PopupManager.Instance.OnUI(PopupCode.AddLivesPanel);
+
             }
         }
 

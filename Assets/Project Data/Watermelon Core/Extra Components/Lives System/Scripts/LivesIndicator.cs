@@ -1,10 +1,7 @@
 using NTPackage.UI;
 using System;
 using TMPro;
-using Unity.Jobs;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 namespace TitleGame
@@ -18,7 +15,7 @@ namespace TitleGame
 
         [Space]
         [SerializeField] Button addButton;
-        [SerializeField] AddLivesPanel addLivesPanel;
+       // [SerializeField] AddLivesPanel addLivesPanel;
 
         private LivesData Data { get; set; }
 
@@ -42,7 +39,7 @@ namespace TitleGame
             if (LivesManager.Lives >= 5)
             {
                 addButton.gameObject.SetActive(false);
-                Debug.Log("gggggggggggggggggggg" + LivesManager.Lives);
+                Debug.Log("gggggggg" + LivesManager.Lives);
 
             }
             else
@@ -50,7 +47,11 @@ namespace TitleGame
                 Debug.Log("aandbdbdd" +  LivesManager.Lives);
                 addButton.gameObject.SetActive(true);
             }
-            addButton.onClick.AddListener(() => PopupManager.Instance.OnUI(PopupCode.AddLivesPanel));
+            addButton.onClick.AddListener(() => {
+                PopupManager.Instance.OnUI(PopupCode.AddLivesPanel);
+                 AudioController.PlaySound(AudioController.Sounds.buttonSound);
+            }
+            );
             isInitialised = true;
         }
 

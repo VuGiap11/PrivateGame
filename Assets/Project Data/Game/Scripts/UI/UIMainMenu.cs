@@ -24,7 +24,7 @@ namespace TitleGame
         [SerializeField] UIScaleAnimation coinsLabelScalable;
         [SerializeField] CurrencyUIPanelSimple coinsPanel;
         [SerializeField] UIScaleAnimation livesIndicatorScalable;
-        [SerializeField] AddLivesPanel addLivesPanel;
+        //[SerializeField] AddLivesPanel addLivesPanel;
 
         [Space]
         [SerializeField] UIMainMenuButton iapStoreButton;
@@ -249,6 +249,7 @@ namespace TitleGame
                 //        Tween.DelayedCall(2f, LivesManager.RemoveLife);
                 //    }
                 //});
+                Debug.Log("sao1");
                 PopupManager.Instance.OnUI(PopupCode.AddLivesPanel);
             }
         }

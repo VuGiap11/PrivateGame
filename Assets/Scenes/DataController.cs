@@ -19,12 +19,17 @@ namespace TitleGame
     {
         public static DataController instance;
         public DataPlayerController dataPlayerController;
+        public bool isStopping;
         private void Awake()
         {
             if (instance == null)
                 instance = this;
         }
 
+        private void Start()
+        {
+           
+        }
         public static bool IsFirstLogin()
         {
             if (!PlayerPrefs.HasKey("FirstLogin"))
@@ -38,6 +43,7 @@ namespace TitleGame
         [ContextMenu("LoadData")]
         public void LoadData()
         {
+            this.isStopping = false;
             string jsonDataPlayerController = PlayerPrefs.GetString("dataPlayerController");
 
             if (!string.IsNullOrEmpty(jsonDataPlayerController))
@@ -46,7 +52,7 @@ namespace TitleGame
             }
             else
             {
-                this.dataPlayerController.gold =2000;
+                this.dataPlayerController.gold =20000;
                 this.dataPlayerController.isRemoveADS = false;
                 this.dataPlayerController.level = 0;
                 this.dataPlayerController.levelrandom = 0;

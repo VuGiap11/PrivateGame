@@ -5,23 +5,23 @@ namespace TitleGame
 {
     public class DefeatPanel : PopupUI
     {
-        [SerializeField] Button menuButton;
-        [SerializeField] Button replayButton;
+        //[SerializeField] Button menuButton;
+        //[SerializeField] Button replayButton;
 
         public override void OnUI(object data = null)
         {
             base.OnUI(data);
-            menuButton.onClick.AddListener(MenuButton);
-            replayButton.onClick.AddListener(ReplayButton);
+            //menuButton.onClick.AddListener(MenuButton);
+            //replayButton.onClick.AddListener(ReplayButton);
         }
-        private void ReplayButton()
+        public void ReplayButton()
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
 
 
             if (LivesManager.Lives <= 0)
             {
-   
+                Debug.Log("sao3");
                 PopupManager.Instance.OnUI(PopupCode.AddLivesPanel);
                 return;
             }
@@ -37,7 +37,7 @@ namespace TitleGame
             }
         }
 
-        private void MenuButton()
+        public void MenuButton()
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
             base.OffUI();

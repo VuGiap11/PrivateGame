@@ -1,10 +1,10 @@
 ﻿//using Rubik.Sort_Challenge.Data.Loading;
+using DG.Tweening;
+using Rubik.Sort_Challenge.Data.Loading;
 using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-using System.Collections.Generic;
     //using DG.Tweening;
     //using NTPackage.UI;
     //using IAP;
@@ -14,7 +14,7 @@ namespace TitleGame
     public class MainMenuController : MonoBehaviour
     {
         public static MainMenuController Instance;
-        //[SerializeField] ItemLoading itemLoading;
+        [SerializeField] ItemLoading itemLoading;
         [SerializeField] private Image levelBarSprite;
         public float fillTime = 10f;
         public TextMeshProUGUI percentText;
@@ -33,7 +33,7 @@ namespace TitleGame
         public void StartGame()
         {
             LoadData();
-           // itemLoading.StartAnimLoading();
+            itemLoading.StartAnimLoading();
             if (loading != null)
             {
                 StopCoroutine(loading);
@@ -56,8 +56,8 @@ namespace TitleGame
             }
             levelBarSprite.fillAmount = targetFill;
             UpdatePercentageDisplay(targetFill);
-            //itemLoading.StopAnimLoading();
-           // DOTween.KillAll();
+            itemLoading.StopAnimLoading();
+            DOTween.KillAll();
             LoadToSceneStartScene();
         }
         private void UpdatePercentageDisplay(float fillAmount)
@@ -73,7 +73,7 @@ namespace TitleGame
             {
                 StopCoroutine(loading);
             }
-            //itemLoading.StopAnimLoading();
+            itemLoading.StopAnimLoading();
            SceneController.instance.LoadToSceneStartGame();
         }
         public void LoadData()

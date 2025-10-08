@@ -169,6 +169,8 @@ namespace TitleGame
 
         public virtual void OnObjectClicked()
         {
+
+            if (DataController.instance.isStopping) return;
             if (isSubmitted)
                 return;
 

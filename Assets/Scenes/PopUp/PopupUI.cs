@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Rubik.TitleGame;
+using TitleGame;
 
 namespace NTPackage.UI
 {
@@ -60,6 +61,10 @@ namespace NTPackage.UI
         public Action ActionOnUI;
         public virtual void OnUI(object data = null)
         {
+            if (!DataController.instance.isStopping)
+            {
+                DataController.instance.isStopping = true;
+            }
             //if (this.popupCode != PopupCode.LoadingBgUI)
             //{
             //    SoundController.instance.AudioExitButton();
@@ -71,10 +76,15 @@ namespace NTPackage.UI
         public Action ActionOffUI;
         public virtual void OffUI()
         {
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
             //if (this.popupCode != PopupCode.LoadingBgUI)
             //{
             //    SoundController.instance.AudioExitButton();
             //}
+            if (DataController.instance.isStopping)
+            {
+                DataController.instance.isStopping = false;
+            }
             try
             {
                 this.ActionOffUI.Invoke();
@@ -137,10 +147,10 @@ namespace NTPackage.UI
             //});
             this.transPanel.localScale = Vector3.zero;
             this.transPanel.gameObject.SetActive(true);
-            this.transPanel.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 0.45f).SetEase(Ease.OutQuart)
+            this.transPanel.DOScale(new Vector3(1.05f, 1.05f, 1.05f), 0.45f).SetEase(DG.Tweening.Ease.OutQuart)
             .OnComplete(() =>
             {
-                this.transPanel.DOScale(new Vector3(1f, 1f, 1f), 0.25f).SetEase(Ease.Linear);
+                this.transPanel.DOScale(new Vector3(1f, 1f, 1f), 0.25f).SetEase(DG.Tweening.Ease.Linear);
             });
 
         }

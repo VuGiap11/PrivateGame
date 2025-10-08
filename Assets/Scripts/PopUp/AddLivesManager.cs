@@ -13,6 +13,7 @@ namespace TitleGame
 
         public void Refill()
         {
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
             LivesManager.AddLife();
             if (LivesManager.Lives >= 5)
             {

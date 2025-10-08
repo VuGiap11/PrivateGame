@@ -135,8 +135,7 @@ namespace TitleGame
                     if(PUController.UsePowerUp(settings.Type))
                     {
                         AudioController.PlaySound(AudioController.Sounds.buttonSound);
-
-                        bounce.Bounce();
+                       bounce.Bounce();
                     }
                 }
             }

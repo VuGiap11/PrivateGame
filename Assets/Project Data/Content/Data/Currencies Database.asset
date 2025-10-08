@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currencies:
   - currencyType: 0
-    icon: {fileID: 21300000, guid: 66be956892120a84bbda15b783d05267, type: 3}
+    defaultAmount: 0
+    icon: {fileID: 21300000, guid: a8766bc47c06ae947b2b3476837f5cdb, type: 3}
     displayAlways: 1
     floatingCloud:
       addToCloud: 1
       radius: 200
       specialPrefab: {fileID: 0}
       appearAudioClip: {fileID: 8300000, guid: 8db4e5b130b97684faf58b30011cc8cf, type: 3}
-      collectAudioClip: {fileID: 8300000, guid: 1b3a9aa133dd17e4a80144d16ef86d0b,
-        type: 3}
+      collectAudioClip: {fileID: 8300000, guid: 1b3a9aa133dd17e4a80144d16ef86d0b, type: 3}

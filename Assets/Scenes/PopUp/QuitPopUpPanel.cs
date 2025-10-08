@@ -19,6 +19,7 @@ namespace TitleGame
 
         public void ClaimQuit()
         {
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
             if (LivesManager.IsMaxLives)
                 LivesManager.RemoveLife();
 

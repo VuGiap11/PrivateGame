@@ -20,9 +20,9 @@ namespace TitleGame
         {
             base.OnUI(data);
             currentReward = LevelController.CurrentReward;
-            multiplyRewardButton.onClick.AddListener(MultiplyRewardButton);
-            homeButton.onClick.AddListener(HomeButton);
-            nextLevelButton.onClick.AddListener(NextLevelButton);
+            //multiplyRewardButton.onClick.AddListener(MultiplyRewardButton);
+            //homeButton.onClick.AddListener(HomeButton);
+           // nextLevelButton.onClick.AddListener(NextLevelButton);
             multiplyRewardButton.gameObject.SetActive(false);
             homeButton.interactable = false;
             nextLevelButton.interactable = false;

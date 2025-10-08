@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TitleGame;
 using UnityEngine;
 
 namespace NTPackage.UI
@@ -10,6 +11,7 @@ namespace NTPackage.UI
         public void _OneClick()
         {
             PopupManager.Instance.OnUI(PopupCode);
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
             Debug.Log("PopUpcode" + PopupCode);
         }
     }

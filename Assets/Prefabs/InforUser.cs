@@ -68,6 +68,7 @@ namespace TitleGame
         public void ChangeAvar()
         {
             // SoundController.instance.AudioButton();
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
             AvarPanel avarPanel = PopupManager.Instance.GetPopupUIByCode(PopupCode.AvatarChangeUI) as AvarPanel;
             if (avarPanel != null)
             {
