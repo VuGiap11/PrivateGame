@@ -34,6 +34,8 @@ namespace TitleGame
 
         public static event PopupWindowCallback OnPoupWindowStateChanged;
 
+        public static UIMainMenu uIMainMenu;
+        public static UIMainMenu UIMainMenu => uIMainMenu;
         public void Initialise()
         {
             uiController = this;
@@ -63,7 +65,7 @@ namespace TitleGame
 
             // Cache game page
             gamePage = (UIGame)pagesLink[typeof(UIGame)];
-
+            uIMainMenu = (UIMainMenu)pagesLink[typeof(UIMainMenu)];
             // Initialise global overlay
             Overlay.Initialise(this);
         }
@@ -198,6 +200,11 @@ namespace TitleGame
 
         public delegate void PageCallback(UIPage page, Type pageType);
         public delegate void PopupWindowCallback(IPopupWindow popupWindow, bool state);
+
+        public static void InitText()
+        {
+            uIMainMenu.InitText();
+        }
     }
 }
 

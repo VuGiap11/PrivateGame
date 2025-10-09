@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TitleGame.IAPStore;
 using TitleGame.Map;
 using NTPackage.UI;
 
@@ -22,7 +21,7 @@ namespace TitleGame
 
         [Space]
         [SerializeField] UIScaleAnimation coinsLabelScalable;
-        [SerializeField] CurrencyUIPanelSimple coinsPanel;
+        public CurrencyUIPanelSimple coinsPanel;
         [SerializeField] UIScaleAnimation livesIndicatorScalable;
         //[SerializeField] AddLivesPanel addLivesPanel;
 
@@ -30,20 +29,20 @@ namespace TitleGame
         [SerializeField] UIMainMenuButton iapStoreButton;
         [SerializeField] UIMainMenuButton noAdsButton;
 
-        [Space]
-        [SerializeField] UINoAdsPopUp noAdsPopUp;
+        //[Space]
+        //[SerializeField] UINoAdsPopUp noAdsPopUp;
 
         private TweenCase tapToPlayPingPong,iconPingPong;
         private TweenCase showHideStoreAdButtonDelayTweenCase;
 
         private void OnEnable()
         {
-            IAPManager.OnPurchaseComplete += OnAdPurchased;
+            
         }
 
         private void OnDisable()
         {
-            IAPManager.OnPurchaseComplete -= OnAdPurchased;
+            
         }
 
         public override void Initialise()
@@ -79,7 +78,7 @@ namespace TitleGame
             playButtonText.text = "LEVEL " + (DataController.instance.dataPlayerController.level + 1);
             showHideStoreAdButtonDelayTweenCase = Tween.DelayedCall(0.12f, delegate
             {
-                ShowAdButton();
+               ShowAdButton();
                 iapStoreButton.Show();
             });
 
@@ -184,7 +183,15 @@ namespace TitleGame
 
         private void ShowAdButton(bool immediately = false)
         {
-            if (AdsManager.IsForcedAdEnabled())
+            //if (AdsManager.IsForcedAdEnabled())
+            //{
+            //    noAdsButton.Show(immediately);
+            //}
+            //else
+            //{
+            //    noAdsButton.Hide(immediately: true);
+            //}
+            if (!DataController.instance.dataPlayerController.isRemoveADS)
             {
                 noAdsButton.Show(immediately);
             }
@@ -256,31 +263,31 @@ namespace TitleGame
 
         private void IAPStoreButton()
         {
-            if (UIController.GetPage<UIIAPStore>().IsPageDisplayed)
-                return;
+            //if (UIController.GetPage<UIIAPStore>().IsPageDisplayed)
+            //    return;
 
-            UILevelNumberText.Hide(true);
+            //UILevelNumberText.Hide(true);
 
-            UIController.HidePage<UIMainMenu>();
-            UIController.ShowPage<UIIAPStore>();
+            //UIController.HidePage<UIMainMenu>();
+            //UIController.ShowPage<UIIAPStore>();
 
-            // reopening main menu only after store page was opened throug main menu
-            UIController.OnPageClosedEvent += OnIapStoreClosed;
-            //MapBehavior.DisableScroll();
+            //// reopening main menu only after store page was opened throug main menu
+            //UIController.OnPageClosedEvent += OnIapStoreClosed;
+            ////MapBehavior.DisableScroll();
 
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
         }
 
-        private void OnIapStoreClosed(UIPage page, System.Type pageType)
-        {
-            if (pageType.Equals(typeof(UIIAPStore)))
-            {
-                UIController.OnPageClosedEvent -= OnIapStoreClosed;
+        //private void OnIapStoreClosed(UIPage page, System.Type pageType)
+        //{
+        //    if (pageType.Equals(typeof(UIIAPStore)))
+        //    {
+        //        UIController.OnPageClosedEvent -= OnIapStoreClosed;
 
-                // MapBehavior.EnableScroll();
-                UIController.ShowPage<UIMainMenu>();
-            }
-        }
+        //        // MapBehavior.EnableScroll();
+        //        UIController.ShowPage<UIMainMenu>();
+        //    }
+        //}
 
 
 
@@ -288,16 +295,20 @@ namespace TitleGame
 
         private void NoAdButton()
         {
-            noAdsPopUp.Show();
+           // noAdsPopUp.Show();
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
         }
 
         private void AddCoinsButton()
         {
-            IAPStoreButton();
+            //IAPStoreButton();
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
         }
 
+        public void InitText()
+        {
+            this.coinsPanel.SetTextGold();
+        }
         #endregion
     }
 

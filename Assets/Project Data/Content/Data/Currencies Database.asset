@@ -15,7 +15,7 @@ MonoBehaviour:
   currencies:
   - currencyType: 0
     defaultAmount: 0
-    icon: {fileID: 21300000, guid: a8766bc47c06ae947b2b3476837f5cdb, type: 3}
+    icon: {fileID: 21300000, guid: e37411392e923ac43a7928292f5a7e45, type: 3}
     displayAlways: 1
     floatingCloud:
       addToCloud: 1

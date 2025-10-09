@@ -23,7 +23,7 @@ namespace TitleGame
         private static Coroutine livesCoroutine;
 
         private static List<LivesIndicator> indicators = new List<LivesIndicator>();
-        private static List<AddLivesPanel> addLivesPanels = new List<AddLivesPanel>();
+        //private static List<AddLivesPanel> addLivesPanels = new List<AddLivesPanel>();
 
        // public static bool IsMaxLives => Lives == instance.data.maxLivesCount;
 
@@ -51,25 +51,25 @@ namespace TitleGame
             }
         }
 
-        public static void AddPanel(AddLivesPanel panel)
-        {
-            if(!addLivesPanels.Contains(panel)) addLivesPanels.Add(panel);
+        //public static void AddPanel(AddLivesPanel panel)
+        //{
+        //    if(!addLivesPanels.Contains(panel)) addLivesPanels.Add(panel);
 
-            if(instance == null)
-            {
-                Tween.NextFrame(() => {
-                    panel.SetLivesCount(Lives);
-                });
-            } else
-            {
-                panel.SetLivesCount(Lives);
-            }
-        }
+        //    if(instance == null)
+        //    {
+        //        Tween.NextFrame(() => {
+        //            panel.SetLivesCount(Lives);
+        //        });
+        //    } else
+        //    {
+        //        panel.SetLivesCount(Lives);
+        //    }
+        //}
 
-        public static void RemovePanel(AddLivesPanel panel)
-        {
-            addLivesPanels.Remove(panel);
-        }
+        //public static void RemovePanel(AddLivesPanel panel)
+        //{
+        //    addLivesPanels.Remove(panel);
+        //}
 
         public static void AddIndicator(LivesIndicator indicator)
         {

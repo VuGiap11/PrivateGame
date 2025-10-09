@@ -22,7 +22,7 @@ namespace TitleGame
        // [SerializeField] UIScaleAnimation reviveButtonScalable;
 
         [SerializeField] LivesIndicator livesIndicator;
-        [SerializeField] AddLivesPanel addLivesPanel;
+        //[SerializeField] AddLivesPanel addLivesPanel;
 
         private TweenCase continuePingPongCase;
 

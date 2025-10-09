@@ -50,7 +50,7 @@ namespace TitleGame
                 uiBehaviors[i].Initialise(activePowerUps[i]);
             }
 
-            powerUpPurchasePanel.Initialise();
+            //powerUpPurchasePanel.Initialise();
         }
 
         private void Update()

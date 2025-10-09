@@ -7,7 +7,7 @@ namespace TitleGame
         protected AdProvider providerType;
         public AdProvider ProviderType => providerType;
 
-        protected AdsSettings adsSettings;
+      //  protected AdsSettings adsSettings;
 
         protected bool isInitialised = false;
 
@@ -25,13 +25,13 @@ namespace TitleGame
         {
             isInitialised = true;
 
-            AdsManager.OnProviderInitialised(providerType);
+            //AdsManager.OnProviderInitialised(providerType);
 
-            if (adsSettings.SystemLogs)
-                Debug.Log(string.Format("[AdsManager]: {0} is initialized!", providerType));
+            //if (adsSettings.SystemLogs)
+              //  Debug.Log(string.Format("[AdsManager]: {0} is initialized!", providerType));
         }
 
-        public abstract void Initialise(AdsSettings adsSettings);
+       // public abstract void Initialise(AdsSettings adsSettings);
 
         public abstract void ShowBanner();
         public abstract void HideBanner();

@@ -13,14 +13,14 @@ namespace TitleGame
         [SerializeField] TMP_Text powerUpPurchaseDescriptionText;
         [SerializeField] TMP_Text powerUpPurchasePriceText;
         [SerializeField] TMP_Text GoldText;
-        [SerializeField] GameObject notiObj;
+       // [SerializeField] GameObject notiObj;
 
         public PUSettings settings;
 
         public override void OnUI(object data = null)
         {
             base.OnUI(data);
-            this.notiObj.SetActive(false);
+            //this.notiObj.SetActive(false);
             this.settings = data as PUSettings;
             this.GoldText.text = DataController.instance.dataPlayerController.gold.ToString();
             powerUpPurchasePreview.sprite = settings.Icon;
@@ -31,12 +31,14 @@ namespace TitleGame
 
         public void Buy()
         {
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
             if (DataController.instance.dataPlayerController.gold <= this.settings.Price)
             {
-                OnNoti();
+                // OnNoti();
+                PopupManager.Instance.OnUI(PopupCode.ShopPanel);
             }else
             {
-                AudioController.PlaySound(AudioController.Sounds.buttonSound);
+               
                 bool purchaseSuccessful = PUController.PurchasePowerUp(settings.Type);
                // this.GoldText.text = DataController.instance.dataPlayerController.gold.ToString();
                 if (purchaseSuccessful)
@@ -50,10 +52,10 @@ namespace TitleGame
             base.UpdateData(data);
             this.GoldText.text = DataController.instance.dataPlayerController.gold.ToString();
         }
-        private void OnNoti()
-        {
-            this.notiObj.SetActive(true);
-            DOVirtual.DelayedCall(1f, ()=> this.notiObj.SetActive(false));
-        }
+        //private void OnNoti()
+        //{
+        //    this.notiObj.SetActive(true);
+        //    DOVirtual.DelayedCall(1f, ()=> this.notiObj.SetActive(false));
+        //}
     }
 }

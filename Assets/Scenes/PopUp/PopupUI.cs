@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using Rubik.TitleGame;
+using TitleGame.TitleGame;
 using TitleGame;
 
 namespace NTPackage.UI

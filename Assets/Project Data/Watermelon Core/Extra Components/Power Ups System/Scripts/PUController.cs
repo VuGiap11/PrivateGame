@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using TitleGame.IAPStore;
+//using TitleGame.IAPStore;
 
 namespace TitleGame
 {

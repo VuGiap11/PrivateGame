@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-namespace Rubik.TitleGame
+namespace TitleGame.TitleGame
 {
     public class Dondestroy : MonoBehaviour
     {

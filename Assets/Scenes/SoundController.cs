@@ -1,7 +1,7 @@
 ﻿using NTPackage.UI;
 using UnityEngine;
 
-namespace Rubik.TitleGame
+namespace TitleGame.TitleGame
 {
     public class SoundController : MonoBehaviour
     {

@@ -1,6 +1,6 @@
 ﻿//using Rubik.Sort_Challenge.Data.Loading;
 using DG.Tweening;
-using Rubik.Sort_Challenge.Data.Loading;
+using TitleGame.Sort_Challenge.Data.Loading;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -33,7 +33,7 @@ namespace TitleGame
         public void StartGame()
         {
             LoadData();
-            itemLoading.StartAnimLoading();
+            //itemLoading.StartAnimLoading();
             if (loading != null)
             {
                 StopCoroutine(loading);
@@ -56,7 +56,7 @@ namespace TitleGame
             }
             levelBarSprite.fillAmount = targetFill;
             UpdatePercentageDisplay(targetFill);
-            itemLoading.StopAnimLoading();
+           // itemLoading.StopAnimLoading();
             DOTween.KillAll();
             LoadToSceneStartScene();
         }
@@ -73,7 +73,7 @@ namespace TitleGame
             {
                 StopCoroutine(loading);
             }
-            itemLoading.StopAnimLoading();
+           // itemLoading.StopAnimLoading();
            SceneController.instance.LoadToSceneStartGame();
         }
         public void LoadData()
@@ -86,6 +86,7 @@ namespace TitleGame
             //IAPManager.Instance.Init();
             //AdsManager.instance.Init();
             DataController.instance.LoadData();
+            AdsManager.instance.Init();
         }
         //private void RoteIcoinSetting()
         //{

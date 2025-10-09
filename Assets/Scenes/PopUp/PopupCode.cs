@@ -25,5 +25,11 @@ namespace NTPackage.UI
         soundSetting,
         AvatarChangeUI,
         NameChangeUI,
+        ShopPanel,
+        NoInternet,
+        NoAds,
+        NoticePanel,
+        ResultIAP,
+        RomoveAds,
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Rubik.BlindBag
+namespace TitleGame.BlindBag
 {
 
     public class ScaleCavasIteam : MonoBehaviour

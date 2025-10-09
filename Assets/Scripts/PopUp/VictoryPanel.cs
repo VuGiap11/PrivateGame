@@ -30,12 +30,7 @@ namespace TitleGame
         }
         public void MultiplyRewardButton()
         {
-            AudioController.PlaySound(AudioController.Sounds.buttonSound);
-            homeButton.interactable = false;
-            nextLevelButton.interactable = false;
-            int rewardMult = 3;
-            multiplyRewardButton.interactable = false;
-            DOVirtual.DelayedCall(0.5f, () => InitText(rewardMult));
+
             //ShowRewardLabel(currentReward * rewardMult, false, 0.3f, delegate
             //{
             //    FloatingCloud.SpawnCurrency(coinsHash, rewardLabel.RectTransform, coinsPanelScalable.RectTransform, 10, "", () =>
@@ -46,6 +41,32 @@ namespace TitleGame
             //        nextLevelButton.interactable = true;
             //    });
             //});
+
+            if (!NetworkSettingsOpener.Instance.CheckInternet())
+            {
+                PopupManager.Instance.OnUI(PopupCode.NoInternet);
+            }
+            else
+            {
+                if (!AdsManager.instance.IsRewardedInterstitialAdReady())
+                {
+                    PopupManager.Instance.OnUI(PopupCode.NoAds);
+                }
+                else
+                {
+                    AdsManager.instance.ShowRewardedInterstitialAd(MultiplyReward);
+                }
+            }
+        }
+
+        private void MultiplyReward()
+        {
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
+            homeButton.interactable = false;
+            nextLevelButton.interactable = false;
+            int rewardMult = 3;
+            multiplyRewardButton.interactable = false;
+            DOVirtual.DelayedCall(0.5f, () => InitText(rewardMult));
         }
         public void Init()
         {

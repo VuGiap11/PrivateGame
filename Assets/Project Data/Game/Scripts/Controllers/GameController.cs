@@ -101,13 +101,13 @@ namespace TitleGame
 
         public static void LoadLevel(int index, SimpleCallback onLevelLoaded = null)
         {
-            AdsManager.ShowInterstitial(null);
+            //AdsManager.ShowInterstitial(null);
 
            // gameController.mapBehavior.Hide();
 
             UIController.HidePage<UIMainMenu>(() =>
             {
-                AdsManager.EnableBanner();
+               // AdsManager.EnableBanner();
 
                 UIController.ShowPage<UIGame>();
 
@@ -175,11 +175,11 @@ namespace TitleGame
 
           //  gameController.mapBehavior.Show();
 
-            AdsManager.ShowInterstitial(null);
+            //AdsManager.ShowInterstitial(null);
 
             UIController.ShowPage<UIMainMenu>();
 
-            AdsManager.DisableBanner();
+            //AdsManager.DisableBanner();
         }
 
         public static void Revive()

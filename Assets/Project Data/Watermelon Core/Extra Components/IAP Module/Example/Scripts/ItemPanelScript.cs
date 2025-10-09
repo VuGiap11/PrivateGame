@@ -29,8 +29,8 @@ namespace TitleGame
 
         public void BuyButton()
         {
-            IAPManager.BuyProduct(item);
-            IAPManager.OnPurchaseComplete += HandlePurchaseComplete;
+           // IAPManager.BuyProduct(item);
+           // IAPManager.OnPurchaseComplete += HandlePurchaseComplete;
         }
 
         private void HandlePurchaseComplete(ProductKeyType productKeyType)
