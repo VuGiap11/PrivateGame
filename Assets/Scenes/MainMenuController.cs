@@ -5,16 +5,17 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-    //using DG.Tweening;
-    //using NTPackage.UI;
-    //using IAP;
+using IAP;
+//using DG.Tweening;
+//using NTPackage.UI;
+//using IAP;
 
 namespace TitleGame
 {
     public class MainMenuController : MonoBehaviour
     {
         public static MainMenuController Instance;
-        [SerializeField] ItemLoading itemLoading;
+        //[SerializeField] ItemLoading itemLoading;
         [SerializeField] private Image levelBarSprite;
         public float fillTime = 10f;
         public TextMeshProUGUI percentText;
@@ -86,6 +87,8 @@ namespace TitleGame
             //IAPManager.Instance.Init();
             //AdsManager.instance.Init();
             DataController.instance.LoadData();
+            DataAssets.instance.LoadDataIap();
+            IAPManager.Instance.Init();
             AdsManager.instance.Init();
         }
         //private void RoteIcoinSetting()

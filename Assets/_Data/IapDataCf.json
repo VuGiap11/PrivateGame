@@ -1,0 +1,27 @@
+﻿{
+  "iapDataCfs": [
+    { "Id":"com.rubik.titlegame.2000",
+      "Coin":2000
+    },
+    {
+      "Id":"com.rubik.titlegame.4000",
+      "Coin":4000
+    },
+    {
+      "Id":"com.rubik.titlegame.6000",
+      "Coin":6000
+    },
+    {
+      "Id":"com.rubik.titlegame.8000",
+      "Coin":8000
+    },
+    {
+      "Id":"com.rubik.titlegame.10000",
+      "Coin":10000
+    },
+    {
+     "Id":"com.rubik.titlegame.15000",
+      "Coin":15000
+    }
+  ]
+}

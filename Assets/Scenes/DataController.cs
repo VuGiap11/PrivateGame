@@ -14,6 +14,9 @@ namespace TitleGame
         public int levelrandom;
         public string namePlayer;
         public int idAvar;
+        public bool isStartedPack;
+        public int numberAds;
+        public int numberAdsWWin;
     }
     public class DataController : MonoBehaviour
     {
@@ -52,11 +55,15 @@ namespace TitleGame
             }
             else
             {
-                this.dataPlayerController.gold =20000;
+                this.dataPlayerController.gold =300;
                 this.dataPlayerController.isRemoveADS = false;
                 this.dataPlayerController.level = 0;
                 this.dataPlayerController.levelrandom = 0;
                 this.dataPlayerController.idAvar = 0;
+                this.dataPlayerController.isStartedPack = false;
+                this.dataPlayerController.numberAds = 0;
+                this.dataPlayerController.numberAdsWWin = 0;
+
                 Debug.LogWarning("No saved player data found.");
             }
             SaveData();

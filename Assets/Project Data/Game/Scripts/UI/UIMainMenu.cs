@@ -28,7 +28,7 @@ namespace TitleGame
         [Space]
         [SerializeField] UIMainMenuButton iapStoreButton;
         [SerializeField] UIMainMenuButton noAdsButton;
-
+        public GameObject btnAds;
         //[Space]
         //[SerializeField] UINoAdsPopUp noAdsPopUp;
 
@@ -308,6 +308,14 @@ namespace TitleGame
         public void InitText()
         {
             this.coinsPanel.SetTextGold();
+        }
+
+        public void InitBtnAds()
+        {
+            if (!DataController.instance.dataPlayerController.isRemoveADS)
+            {
+                
+            }
         }
         #endregion
     }

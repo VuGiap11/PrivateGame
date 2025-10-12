@@ -18,7 +18,12 @@ namespace TitleGame
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
 
+       
+            Ads();
+        }
 
+        public void Ads()
+        {
             if (LivesManager.Lives <= 0)
             {
                 Debug.Log("sao3");
@@ -36,7 +41,6 @@ namespace TitleGame
                 GameController.ReplayLevel();
             }
         }
-
         public void MenuButton()
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);

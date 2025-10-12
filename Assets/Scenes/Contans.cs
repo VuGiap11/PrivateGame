@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace TitleGame
 {
+
     public class Contans
     {
         public static string FirstRewartTime = "FirstRewartTime";
@@ -15,5 +16,9 @@ namespace TitleGame
         public static string fullText = "FULL!";
         public static string timespanFormat = "{0:mm\\:ss}";
         public static string longTimespanFormat = "{0:hh\\:mm\\:ss}";
+        public static string RemoveADS = "com.rubik.titlegame.removeads";
+        public static string StarterPack = "com.rubik.titlegame.starterpack";
+        public static int coinsAmount = 2000;
+        public static int powerUpsAmount = 5;
     }
 }

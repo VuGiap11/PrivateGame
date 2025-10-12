@@ -203,7 +203,20 @@ namespace TitleGame
 
         public static void InitText()
         {
+            Debug.Log("InitText");
             uIMainMenu.InitText();
+        }
+
+        public static void InitBtnAds()
+        {
+            if (!DataController.instance.dataPlayerController.isRemoveADS)
+            {
+                UIMainMenu.btnAds.gameObject.SetActive(true);
+            }else
+            {
+                UIMainMenu.btnAds.gameObject.SetActive(false);
+            }
+         
         }
     }
 }

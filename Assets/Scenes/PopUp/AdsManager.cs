@@ -67,7 +67,7 @@ namespace TitleGame
         //test"ca-app-pub-3940256099942544/6300978111";
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-        private string _adBannerUnitId = "ca-app-pub-3940256099942544/6300978111";
+        private string _adBannerUnitId = "ca-app-pub-4705307774712357/2033314813";
 #elif UNITY_IPHONE
                   private string _adBannerUnitId = "ca-app-pub-3940256099942544/2934735716";
 #else
@@ -78,7 +78,7 @@ namespace TitleGame
         //test"ca-app-pub-3940256099942544/1033173712";
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-        private string _adInterstitialAdUnitId = "ca-app-pub-3940256099942544/1033173712";
+        private string _adInterstitialAdUnitId = "ca-app-pub-4705307774712357/3805561487";
 #elif UNITY_IPHONE
               private string _adInterstitialAdUnitId = "ca-app-pub-3940256099942544/4411468910";
 #else
@@ -87,7 +87,7 @@ namespace TitleGame
         //test"ca-app-pub-3940256099942544/5224354917";
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-        private string _adRewardedUnitId = "ca-app-pub-3940256099942544/5224354917";
+        private string _adRewardedUnitId = "ca-app-pub-4705307774712357/5853140329";
 #elif UNITY_IPHONE
                   private string _adRewardedUnitId = "ca-app-pub-3940256099942544/1712485313";
 #else
@@ -97,7 +97,7 @@ namespace TitleGame
         //ca-app-pub-3940256099942544/5354046379
         // These ad units are configured to always serve test ads.
 #if UNITY_ANDROID
-        private string _adRewardedInterstitialUnitId = "ca-app-pub-3940256099942544/5354046379";
+        private string _adRewardedInterstitialUnitId = "ca-app-pub-4705307774712357/3098984474";
 #elif UNITY_IPHONE
   private string _adRewardedInterstitialUnitId = "ca-app-pub-3940256099942544/6978759866";
 #else

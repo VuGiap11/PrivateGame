@@ -19,32 +19,33 @@ namespace TitleGame
         public void ChangeAvar()
         {
             //SoundController.instance.AudioButton();
-            //int number = Random.Range(0, 10);
-            //if (number <= 7)
-            //{
-            //    ClaimAva();
-            //}
-            //else
-            //{
-            //    if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false && DataController.instance.dataPlayerController.numberAds >= 3)
+            AudioController.PlaySound(AudioController.Sounds.buttonSound);
+            int number = Random.Range(0, 10);
+            if (number <= 7)
+            {
+                ClaimAva();
+            }
+            else
+            {
+                if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false&& DataController.instance.dataPlayerController.numberAds >=2)
 
-            //    {
-            //        if (!AdsManager.instance.IsInterstitialAdReady())
-            //        {
-            //            ClaimAva();
-            //        }
-            //        else
-            //        {
-            //            AdsManager.instance.ShowInterstitialAd(ClaimAva);
-            //        }
+                {
+                    if (!AdsManager.instance.IsInterstitialAdReady())
+                    {
+                        ClaimAva();
+                    }
+                    else
+                    {
+                        AdsManager.instance.ShowInterstitialAd(ClaimAva);
+                    }
 
-            //    }
-            //    else
-            //    {
-            //        ClaimAva();
-            //    }
-            //}
-            ClaimAva();
+                }
+                else
+                {
+                    ClaimAva();
+                }
+            }
+           // ClaimAva();
         }
 
         public void ClaimAva()

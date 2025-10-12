@@ -136,18 +136,41 @@ namespace TitleGame
             //    UIController.ShowPage<UIComplete>();
             //});
             PopupManager.Instance.OnUI(PopupCode.VictoryPanel);
+            DataController.instance.dataPlayerController.numberAdsWWin++;
+            DataController.instance.SaveData();
             isGameActive = false;
         }
 
         public static void OnLevelFailed()
         {
+            if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false && DataController.instance.dataPlayerController.numberAds % 3 == 0)
+
+            {
+                if (!AdsManager.instance.IsInterstitialAdReady())
+                {
+                    Ads();
+                }
+                else
+                {
+                    AdsManager.instance.ShowInterstitialAd(Ads);
+                }
+
+            }
+            else
+            {
+                Ads();
+            }
+            //Ads();
+           
+        }
+
+
+        private static void Ads()
+        {
             if (!isGameActive)
                 return;
-
-            //UIController.HidePage<UIGame>(() =>
-            //{
-            //    UIController.ShowPage<UIGameOver>();
-            //});
+            DataController.instance.dataPlayerController.numberAds++;
+            DataController.instance.SaveData();
             PopupManager.Instance.OnUI(PopupCode.DefeatPanel);
             isGameActive = false;
         }

@@ -95,6 +95,27 @@ namespace TitleGame
         }
         public void HomeButton()
         {
+            if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false && DataController.instance.dataPlayerController.numberAdsWWin % 3 == 0)
+
+            {
+                if (!AdsManager.instance.IsInterstitialAdReady())
+                {
+                    AdsHome();
+                }
+                else
+                {
+                    AdsManager.instance.ShowInterstitialAd(AdsHome);
+                }
+            }
+            else
+            {
+                AdsHome();
+            }
+            //AdsHome();
+        }
+
+        public void AdsHome()
+        {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
 
             //UIController.HidePage<UIComplete>(() =>
@@ -104,11 +125,37 @@ namespace TitleGame
             UIController.HidePage<UIGame>();
             GameController.ReturnToMenu();
             LivesManager.AddLife();
+            UIController.InitText();
             base.OffUI();
-           
+        }
+        public void NextLevelButton()
+        {
+            if (!NetworkSettingsOpener.Instance.CheckInternet())
+            {
+                Ads();
+            }
+            else
+            {
+                if (DataController.instance.dataPlayerController.isRemoveADS)
+                {
+                    Ads();
+                }else
+                {
+                    if (!AdsManager.instance.IsInterstitialAdReady())
+                    {
+                        Ads();
+                    }
+                    else
+                    {
+                        AdsManager.instance.ShowInterstitialAd(Ads);
+                    }
+                }
+            
+            }
         }
 
-        public void NextLevelButton()
+
+        public void Ads()
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
 

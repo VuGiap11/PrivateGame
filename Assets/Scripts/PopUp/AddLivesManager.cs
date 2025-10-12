@@ -13,6 +13,26 @@ namespace TitleGame
 
         public void Refill()
         {
+            if (!NetworkSettingsOpener.Instance.CheckInternet())
+            {
+                PopupManager.Instance.OnUI(PopupCode.NoInternet);
+            }
+            else
+            {
+                if (!AdsManager.instance.IsRewardedInterstitialAdReady())
+                {
+                    PopupManager.Instance.OnUI(PopupCode.NoAds);
+                }
+                else
+                {
+                    AdsManager.instance.ShowRewardedInterstitialAd(Ads);
+                }
+            }
+
+        }
+
+        private void Ads()
+        {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
             LivesManager.AddLife();
             if (LivesManager.Lives >= 5)
@@ -27,7 +47,6 @@ namespace TitleGame
             //if (lifeRecievedAudio != null)
             //    AudioController.PlaySound(lifeRecievedAudio);
         }
-
         public override void OnUI(object data = null)
         {
             base.OnUI(data);
