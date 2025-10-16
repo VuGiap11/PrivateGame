@@ -149,6 +149,7 @@ namespace TitleGame
                 if (!AdsManager.instance.IsInterstitialAdReady())
                 {
                     Ads();
+                    AdsManager.instance.LoadInterstitialAd();
                 }
                 else
                 {

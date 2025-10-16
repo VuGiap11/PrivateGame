@@ -17,9 +17,24 @@ namespace TitleGame
         public void ReplayButton()
         {
             AudioController.PlaySound(AudioController.Sounds.buttonSound);
+            if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false && DataController.instance.dataPlayerController.numberAdsWWin % 3 == 0)
 
-       
-            Ads();
+            {
+                if (!AdsManager.instance.IsInterstitialAdReady())
+                {
+                    Ads();
+                    AdsManager.instance.LoadInterstitialAd();
+                }
+                else
+                {
+                    AdsManager.instance.ShowInterstitialAd(Ads);
+                }
+            }
+            else
+            {
+                Ads();
+            }
+           // Ads();
         }
 
         public void Ads()

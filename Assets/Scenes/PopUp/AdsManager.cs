@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using GoogleMobileAds.Api;
 using System;
+using System.Collections;
 using UnityEngine;
 
 namespace TitleGame
@@ -29,10 +30,7 @@ namespace TitleGame
             //    LoadRewardedAd();
             //    LoadRewardedInterstitialAd();
             //});
-
         }
-
-
         public void Init()
         {
             MobileAds.RaiseAdEventsOnUnityMainThread = true;
@@ -130,6 +128,7 @@ namespace TitleGame
                     {
                         Debug.LogError("rewarded interstitial ad failed to load an ad " +
                                        "with error : " + error);
+                        Invoke(nameof(LoadRewardedInterstitialAd), 15f);
                         return;
                     }
 
@@ -143,13 +142,13 @@ namespace TitleGame
         public void ShowRewardedInterstitialAd(Action action)
         {
             this.Action = action;
-            if (_rewardedInterstitialAd == null || !_rewardedInterstitialAd.CanShowAd())
-            {
-                Debug.Log("Quảng cáo chưa sẵn sàng hoặc không thể hiển thị.");
-                return;
-            }
-            const string rewardMsg =
-                "Rewarded interstitial ad rewarded the user. Type: {0}, amount: {1}.";
+            //if (_rewardedInterstitialAd == null || !_rewardedInterstitialAd.CanShowAd())
+            //{
+            //    Debug.Log("Quảng cáo chưa sẵn sàng hoặc không thể hiển thị.");
+            //    return;
+            //}
+            //const string rewardMsg =
+            //    "Rewarded interstitial ad rewarded the user. Type: {0}, amount: {1}.";
             
             if (_rewardedInterstitialAd != null && _rewardedInterstitialAd.CanShowAd())
             {
@@ -158,8 +157,12 @@ namespace TitleGame
                 {
                     // TODO: Reward the user.
                     this.Action?.Invoke();
-                    Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
+                    //Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
                 });
+                LoadRewardedInterstitialAd();
+            }else
+            {
+                LoadRewardedInterstitialAd();
             }
         }
         private void RegisterEventHandlers(RewardedInterstitialAd ad)
@@ -229,6 +232,7 @@ namespace TitleGame
                     {
                         Debug.LogError("Rewarded ad failed to load an ad " +
                                        "with error : " + error);
+                        Invoke(nameof(LoadRewardedAd), 15f);
                         return;
                     }
 
@@ -257,6 +261,10 @@ namespace TitleGame
                     this.Action?.Invoke();
                     Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
                 });
+                LoadRewardedAd();
+            }else
+            {
+                LoadRewardedAd();
             }
         }
         private void RegisterEventHandlers(RewardedAd ad)
@@ -326,6 +334,7 @@ namespace TitleGame
                     {
                         Debug.LogError("interstitial ad failed to load an ad " +
                                        "with error : " + error);
+                        Invoke(nameof(LoadInterstitialAd), 15f); // thử lại sau 15 giây
                         return;
                     }
 
@@ -350,6 +359,7 @@ namespace TitleGame
             }
             else
             {
+                LoadInterstitialAd();
                 Debug.LogError("Interstitial ad is not ready yet.");
             }
         }
@@ -434,6 +444,7 @@ namespace TitleGame
         /// <summary>
         /// listen to events the banner view may raise.
         /// </summary>
+        /// 
         private void ListenToAdEvents()
         {
             // Raised when an ad is loaded into the banner view.
@@ -447,8 +458,8 @@ namespace TitleGame
             {
                 Debug.LogError("Banner view failed to load an ad with error : "
                     + error);
-
-                LoadAd(); 
+                StartCoroutine(ReloadBannerWithDelay());
+                //LoadAd(); 
             };
             // Raised when the ad is estimated to have earned money.
             _bannerView.OnAdPaid += (AdValue adValue) =>
@@ -478,6 +489,11 @@ namespace TitleGame
                 Debug.Log("Banner view full screen content closed.");
                 LoadAd();
             };
+        }
+        IEnumerator ReloadBannerWithDelay()
+        {
+            yield return new WaitForSeconds(10f);
+            LoadAd();
         }
         /// <summary>
         /// Destroys the banner view.

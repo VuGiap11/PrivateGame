@@ -270,6 +270,20 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b364980e71d57674d9ef5bfe24bbe39e, type: 2}
   - {fileID: 11400000, guid: 04654c250980cb04b87a5db1732173ee, type: 2}
   - {fileID: 11400000, guid: 15cd39b9f4aad814ebdc1a5083e8ac53, type: 2}
+  - {fileID: 11400000, guid: 2f37092ceceddfc46b80696d6837e1bd, type: 2}
+  - {fileID: 11400000, guid: 26d55a2fbf829b84b8bd3576d4be08eb, type: 2}
+  - {fileID: 11400000, guid: d69e09658bd8d454fb0357f7d332159b, type: 2}
+  - {fileID: 11400000, guid: c2ed34cd127d78941973db1e01c3e06d, type: 2}
+  - {fileID: 11400000, guid: 9c56f71e03ec48b459ad04dc5fec26b5, type: 2}
+  - {fileID: 11400000, guid: a7e561f1dd2731348a63a385e6a3ae27, type: 2}
+  - {fileID: 11400000, guid: 02dbc9ed532ed29458929cbc288f0cdb, type: 2}
+  - {fileID: 11400000, guid: 44f7691b2d25c274bb65e17905498dcd, type: 2}
+  - {fileID: 11400000, guid: c405400927895064d8da2d9aa7616c6b, type: 2}
+  - {fileID: 11400000, guid: e94c0a89c21496747bf7c6a4bfa95e98, type: 2}
+  - {fileID: 11400000, guid: edeb7b06c422f044aaed683bbf9d7e9d, type: 2}
+  - {fileID: 11400000, guid: b74b1906528383b44ba3b1734c7f1462, type: 2}
+  - {fileID: 11400000, guid: da7e89190cab94e49854c1597a3906d7, type: 2}
+  - {fileID: 11400000, guid: 177f12105c26e8f44949a708b6796ac4, type: 2}
   tiles:
   - prefab: {fileID: 2542306047163851403, guid: 17637f81f354b434d9448fb5623ff8ad, type: 3}
     availableFromLevel: 0

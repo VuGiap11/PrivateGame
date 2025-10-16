@@ -41,7 +41,9 @@ namespace TitleGame
                 if (!AdsManager.instance.IsRewardedInterstitialAdReady())
                 {
                     PopupManager.Instance.OnUI(PopupCode.NoAds);
-                }else
+                    AdsManager.instance.LoadRewardedInterstitialAd();
+                }
+                else
                 {
                     AdsManager.instance.ShowRewardedInterstitialAd(AdsGold);
                 }

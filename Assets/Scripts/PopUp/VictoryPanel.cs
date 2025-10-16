@@ -51,6 +51,7 @@ namespace TitleGame
                 if (!AdsManager.instance.IsRewardedInterstitialAdReady())
                 {
                     PopupManager.Instance.OnUI(PopupCode.NoAds);
+                    AdsManager.instance.LoadRewardedInterstitialAd();
                 }
                 else
                 {
@@ -95,12 +96,13 @@ namespace TitleGame
         }
         public void HomeButton()
         {
-            if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false && DataController.instance.dataPlayerController.numberAdsWWin % 3 == 0)
+            if (NetworkSettingsOpener.Instance.CheckInternet() && DataController.instance.dataPlayerController.isRemoveADS == false && DataController.instance.dataPlayerController.numberAdsWWin % 2 == 0)
 
             {
                 if (!AdsManager.instance.IsInterstitialAdReady())
                 {
                     AdsHome();
+                    AdsManager.instance.LoadInterstitialAd();
                 }
                 else
                 {
@@ -111,6 +113,8 @@ namespace TitleGame
             {
                 AdsHome();
             }
+
+
             //AdsHome();
         }
 
@@ -144,6 +148,7 @@ namespace TitleGame
                     if (!AdsManager.instance.IsInterstitialAdReady())
                     {
                         Ads();
+                        AdsManager.instance.LoadInterstitialAd();
                     }
                     else
                     {

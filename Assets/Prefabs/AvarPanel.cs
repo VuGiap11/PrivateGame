@@ -33,6 +33,7 @@ namespace TitleGame
                     if (!AdsManager.instance.IsInterstitialAdReady())
                     {
                         ClaimAva();
+                        AdsManager.instance.LoadInterstitialAd();
                     }
                     else
                     {
