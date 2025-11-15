@@ -13,12 +13,14 @@ namespace TitleGame
         private InterstitialAd _interstitialAd;
         private RewardedAd _rewardedAd;
         private RewardedInterstitialAd _rewardedInterstitialAd;
-        Action Action;
+       // Action Action;
+        Action Actioninterstittial, ActionReward, ActionRewardInterstitial;
         private void Awake()
         {
             if (instance == null)
             { instance = this; }
         }
+
         public void Start()
         {
             // Initialize the Google Mobile Ads SDK.
@@ -128,7 +130,7 @@ namespace TitleGame
                     {
                         Debug.LogError("rewarded interstitial ad failed to load an ad " +
                                        "with error : " + error);
-                        Invoke(nameof(LoadRewardedInterstitialAd), 15f);
+                      //  Invoke(nameof(LoadRewardedInterstitialAd), 15f);
                         return;
                     }
 
@@ -141,7 +143,8 @@ namespace TitleGame
         }
         public void ShowRewardedInterstitialAd(Action action)
         {
-            this.Action = action;
+           // this.Action = action;
+            this.ActionRewardInterstitial = action;
             //if (_rewardedInterstitialAd == null || !_rewardedInterstitialAd.CanShowAd())
             //{
             //    Debug.Log("Quảng cáo chưa sẵn sàng hoặc không thể hiển thị.");
@@ -156,14 +159,15 @@ namespace TitleGame
                 _rewardedInterstitialAd.Show((Reward reward) =>
                 {
                     // TODO: Reward the user.
-                    this.Action?.Invoke();
+                    this.ActionRewardInterstitial?.Invoke();
                     //Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
                 });
-                LoadRewardedInterstitialAd();
-            }else
-            {
-                LoadRewardedInterstitialAd();
+               // LoadRewardedInterstitialAd();
             }
+            //else
+            //{
+            //    LoadRewardedInterstitialAd();
+            //}
         }
         private void RegisterEventHandlers(RewardedInterstitialAd ad)
         {
@@ -232,7 +236,7 @@ namespace TitleGame
                     {
                         Debug.LogError("Rewarded ad failed to load an ad " +
                                        "with error : " + error);
-                        Invoke(nameof(LoadRewardedAd), 15f);
+                        //Invoke(nameof(LoadRewardedAd), 15f);
                         return;
                     }
 
@@ -248,7 +252,8 @@ namespace TitleGame
         {
             const string rewardMsg =
                 "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
-            this.Action = action;
+            //this.Action = action;
+            this.ActionReward = action;
             if (_rewardedAd != null && _rewardedAd.CanShowAd())
             {
                // _hasReceivedReward = false;
@@ -258,14 +263,15 @@ namespace TitleGame
                     // TODO: Reward the user.
                     //this.Action = action;
                     //ClawGameManager.Instance.RewardAds();
-                    this.Action?.Invoke();
+                    this.ActionReward?.Invoke();
                     Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
                 });
-                LoadRewardedAd();
-            }else
-            {
-                LoadRewardedAd();
+               // LoadRewardedAd();
             }
+            //else
+            //{
+            //    LoadRewardedAd();
+            //}
         }
         private void RegisterEventHandlers(RewardedAd ad)
         {
@@ -334,7 +340,7 @@ namespace TitleGame
                     {
                         Debug.LogError("interstitial ad failed to load an ad " +
                                        "with error : " + error);
-                        Invoke(nameof(LoadInterstitialAd), 15f); // thử lại sau 15 giây
+                        //Invoke(nameof(LoadInterstitialAd), 15f); // thử lại sau 15 giây
                         return;
                     }
 
@@ -350,18 +356,19 @@ namespace TitleGame
         /// </summary>
         public void ShowInterstitialAd(Action action)
         {
-            this.Action = action;
+            //this.Action = action;
+            this.Actioninterstittial = action;
             if (_interstitialAd != null && _interstitialAd.CanShowAd())
             {
                 Debug.Log("Showing interstitial ad.");
                 _interstitialAd.Show();
                
             }
-            else
-            {
-                LoadInterstitialAd();
-                Debug.LogError("Interstitial ad is not ready yet.");
-            }
+            //else
+            //{
+            //    LoadInterstitialAd();
+            //    Debug.LogError("Interstitial ad is not ready yet.");
+            //}
         }
         private void RegisterEventHandlers(InterstitialAd interstitialAd)
         {
@@ -393,7 +400,7 @@ namespace TitleGame
                
               //  this.Action?.Invoke();
                 LoadInterstitialAd();
-                this.Action?.Invoke();
+                this.Actioninterstittial?.Invoke();
                 Debug.Log("Interstitial ad full screen content closed.");
             };
             // Raised when the ad failed to open full screen content.
